@@ -33,7 +33,7 @@
   <xmp class="prettyprint code1">
   $('.pagination1').bsPagination({
     totalRecord: 200,
-    recentPage: 1
+    currentPage: 1
   });
   </xmp>
   <div class="text-center">
@@ -45,13 +45,15 @@
   <xmp class="prettyprint code2">
   $('.pagination2').bsPagination({
     totalRecord: 400,
-    recentPage: 15,
+    currentPage: 15,
     recordPerPage: 10,
     pagePerBatch: 10,
+    prevPageWord: 'Prev',
+    nextPageWord: 'Next',
     showFirstPage: true,
     showLastPage: true,
-    firstPageWord: '1st page',
-    lastPageWord: 'last page'
+    firstPageWord: 'First',
+    lastPageWord: 'Last'
   });
   </xmp>
   <div class="text-center">
@@ -60,10 +62,11 @@
 
 
   <h3 class="desc">3. set page link to change page, the url will change when you click page</h3>
+  <h4 class="desc">Infact you can set any attr by setLinkAttr</h3>
   <xmp class="prettyprint code3">
   $('.pagination3').bsPagination({
     totalRecord: 200,
-    recentPage: 8,
+    currentPage: 8,
     setLinkAttr: function (page) {
       return 'href="#/page/' + page + '"';
     }
@@ -78,12 +81,12 @@
   <xmp class="prettyprint code4">
   $('.pagination4').bsPagination({
     totalRecord: 200,
-    recentPage: 18
+    currentPage: 18
   });
   $('.pagination4').on('click', 'a', function () {
     $('.pagination4').bsPagination({
       totalRecord: 200,
-      recentPage: $(this).data('page')
+      currentPage: $(this).data('page')
     });
   });
   </xmp>

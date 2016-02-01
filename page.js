@@ -3,8 +3,8 @@ $.fn.bsPagination = function (config) {
   // 2 required params
   // all records number
   var totalRecord = config.totalRecord;
-  // recent page
-  var recentPage = config.recentPage || 1;
+  // current page
+  var currentPage = config.currentPage || 1;
 
   // optional params
   // setLinkAttr to add to every page link, it's userdefined.
@@ -17,20 +17,22 @@ $.fn.bsPagination = function (config) {
   // for example: << 6 7 8 9 10 >> means pagePerBatch is 5.
   // << 4 5 6 >> means pagePerBatch is 3.
   var pagePerBatch = config.pagePerBatch || 5;
+  var prevPageWord = config.prevPageWord || '<'; // previous page word
+  var nextPageWord = config.nextPageWord || '>'; // next page word
   var showFirstPage = config.showFirstPage || false; // boolean, show first page link or not
   var showLastPage = config.showFirstPage || false; // boolean, show last page link or not
-  var firstPageWord = config.firstPageWord || 'First'; // first page word
-  var lastPageWord = config.lastPageWord || 'Last'; // last page word
+  var firstPageWord = config.firstPageWord || '<<'; // first page word
+  var lastPageWord = config.lastPageWord || '>>'; // last page word
 
   // data process;
   var totalPage = Math.ceil(totalRecord / recordPerPage); //total page number
   var totalBatch = Math.ceil(totalPage / pagePerBatch); // total batch number
-  var recentBatch = Math.ceil(recentPage / pagePerBatch); // recent batch
-  recentPage = Math.min(recentPage, totalPage); // recentPage should not be larger than totalPage
-  var minPage = (recentBatch - 1) * pagePerBatch + 1; // min page of recent batch
-  var maxPage = Math.min(recentBatch * pagePerBatch, totalPage);  // max page of recent batch
-  var showLeft = recentBatch > 1; // boolean, show left-batch-link or not
-  var showRight = recentBatch < totalBatch; // boolean, show right-batch-link or not
+  var currentBatch = Math.ceil(currentPage / pagePerBatch); // current batch
+  currentPage = Math.min(currentPage, totalPage); // currentPage should not be larger than totalPage
+  var minPage = (currentBatch - 1) * pagePerBatch + 1; // min page of current batch
+  var maxPage = Math.min(currentBatch * pagePerBatch, totalPage);  // max page of current batch
+  var showLeft = currentBatch > 1; // boolean, show left-batch-link or not
+  var showRight = currentBatch < totalBatch; // boolean, show right-batch-link or not
 
   // draw
   var html = '';
@@ -44,14 +46,14 @@ $.fn.bsPagination = function (config) {
     html += '<li class="first-page"><a ' + setLinkAttr(1) + '>' + firstPageWord + '</a></li>';
   }
   if (showLeft) {
-    html += '<li class="left-batch"><a ' + setLinkAttr(minPage - 1) + '>«</a></li>';
+    html += '<li class="left-batch"><a ' + setLinkAttr(minPage - 1) + '>' + prevPageWord + '</a></li>';
   }
   for (i = minPage; i <= maxPage; i++) {
-    active = (i === recentPage) ? 'class="active"' : '';
+    active = (i === currentPage) ? 'class="active"' : '';
     html += '<li ' + active + '><a ' + setLinkAttr(i) + '>' + i + '</a></li>';
   }
   if (showRight) {
-    html += '<li class="right-batch"><a ' + setLinkAttr(maxPage + 1) + '>»</a></li>';
+    html += '<li class="right-batch"><a ' + setLinkAttr(maxPage + 1) + '>' + nextPageWord + '</a></li>';
   }
   if (showLastPage && showRight) {
     html += '<li class="last-page"><a ' + setLinkAttr(totalPage) + '>' + lastPageWord + '</a></li>';
