@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>page.js</title>
+  <meta charset="utf-8" />
+  <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+
+  <!-- depends on jquery and bootstrap -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" type="text/css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+  <!-- main code -->
+  <script src="page.js"></script>
+</head>
+<body>
+
+  <h2 class="desc">html code</h2>
+  <xmp class="prettyprint">
+    <div class="text-center">
+      <div class="pagination"></div>
+    </div>
+  </xmp>
+
+  <h2 class="desc">1. simple example</h2>
+  <xmp class="prettyprint code1">
+  $('.pagination1').bsPagination({
+    totalRecord: 200,
+    recentPage: 1
+  });
+  </xmp>
+  <div class="text-center">
+    <div class="pagination pagination1"></div>
+  </div>
+
+
+  <h2 class="desc">2. add more config params</h2>
+  <xmp class="prettyprint code2">
+  $('.pagination2').bsPagination({
+    totalRecord: 400,
+    recentPage: 15,
+    recordPerPage: 10,
+    pagePerBatch: 10,
+    showFirstPage: true,
+    showLastPage: true,
+    firstPageWord: '1st page',
+    lastPageWord: 'last page'
+  });
+  </xmp>
+  <div class="text-center">
+    <div class="pagination pagination2"></div>
+  </div>
+
+
+  <h2 class="desc">3. set page link to change page, the url will change when you click page</h2>
+  <xmp class="prettyprint code3">
+  $('.pagination3').bsPagination({
+    totalRecord: 200,
+    recentPage: 8,
+    setLinkAttr: function (page) {
+      return 'href="#/page/' + page + '"';
+    }
+  });
+  </xmp>
+  <div class="text-center">
+    <div class="pagination pagination3"></div>
+  </div>
+
+
+  <h2 class="desc">4. set click link event to change page</h2>
+  <xmp class="prettyprint code4">
+  $('.pagination4').bsPagination({
+    totalRecord: 200,
+    recentPage: 18
+  });
+  $('.pagination4').on('click', 'a', function () {
+    $('.pagination4').bsPagination({
+      totalRecord: 200,
+      recentPage: $(this).data('page')
+    });
+  });
+  </xmp>
+  <div class="text-center">
+    <div class="pagination pagination4"></div>
+  </div>
+
+</body>
+<script>
+  eval($('.code1').text());
+  eval($('.code2').text());
+  eval($('.code3').text());
+  eval($('.code4').text());
+
+</script>
+</html>
