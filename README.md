@@ -1,5 +1,5 @@
 # webdev-gadgets-bootstrap-pagination
-pagination component based on bootstrap pagination, create pagination dynamically and stably, prevent many kinds of boundary exceptions.
+pagination component based on [bootstrap pagination](http://www.w3schools.com/bootstrap/bootstrap_pagination.asp), create pagination dynamically and stably, prevent many kinds of boundary exceptions.
 
 [demos](https://cdn.rawgit.com/jdk137/webdev-gadgets-bootstrap-pagination/master/index.html)
 
@@ -7,20 +7,20 @@ pagination component based on bootstrap pagination, create pagination dynamicall
 
 simple usage:
 
-html, this component did nothing but insert html code into div.pagination
+html:  (this component did nothing but insert html code into div.pagination)
 ``` html
     <div class="text-center">
       <div class="pagination"></div>
     </div>
 ```
 
-javascript
+javascript:
 ``` js
-  $('.pagination1').bsPagination({
+  $('.pagination').bsPagination({
     totalRecord: 200,
     recordPerPage: 10,
     recentPage: 3
   });
 ```
 
-[More complex demos](https://cdn.rawgit.com/jdk137/webdev-gadgets-bootstrap-pagination/master/index.html)
+[More complex usages](https://cdn.rawgit.com/jdk137/webdev-gadgets-bootstrap-pagination/master/index.html)
