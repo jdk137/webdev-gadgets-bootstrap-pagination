@@ -1,6 +1,7 @@
 # webdev-gadgets-bootstrap-pagination
 pagination component based on bootstrap pagination, create pagination dynamically.
 
+![example image](https://raw.githubusercontent.com/jdk137/webdev-gadgets-bootstrap-pagination/master/pagination.png)
 
 simple usage:
 
