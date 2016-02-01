@@ -1,5 +1,5 @@
 # webdev-gadgets-bootstrap-pagination
-pagination component based on bootstrap pagination
+pagination component based on bootstrap pagination, create pagination dynamically.
 
 
 simple usage:
@@ -16,7 +16,7 @@ javascript
   $('.pagination1').bsPagination({
     totalRecord: 200,
     recordPerPage: 10,
-    recentPage: 1
+    recentPage: 3
   });
 ```
 
