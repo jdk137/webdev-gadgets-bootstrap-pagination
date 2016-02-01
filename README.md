@@ -1,7 +1,7 @@
 # webdev-gadgets-bootstrap-pagination
 pagination component based on [bootstrap pagination](http://www.w3schools.com/bootstrap/bootstrap_pagination.asp), create pagination dynamically and stably, prevent many kinds of boundary exceptions.
 
-[demos](https://cdn.rawgit.com/jdk137/webdev-gadgets-bootstrap-pagination/master/index.html)
+[demos](https://cdn.rawgit.com/jdk137/webdev-gadgets-bootstrap-pagination/master/index.html){:target="_blank"}
 
 ![example image](https://raw.githubusercontent.com/jdk137/webdev-gadgets-bootstrap-pagination/master/pagination.png)
 
@@ -23,4 +23,4 @@ javascript:
   });
 ```
 
-[More complex usages](https://cdn.rawgit.com/jdk137/webdev-gadgets-bootstrap-pagination/master/index.html)
+[More complex usages](https://cdn.rawgit.com/jdk137/webdev-gadgets-bootstrap-pagination/master/index.html){:target="_blank"}
